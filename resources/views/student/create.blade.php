@@ -14,7 +14,7 @@
         @endif
         <div class="max-w-2xl  mx-auto bg-gray-200 rounded-lg p-16">
 
-            <form action="{{ route('student.create') }}" method="POST">
+            <form action="{{ route('student.store') }}" method="POST">
                 @csrf
                 <div class="grid gap-6 mb-6 lg:grid-cols-2">
                     <div>

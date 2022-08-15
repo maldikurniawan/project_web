@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use App\Http\Requests\StoreStudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
+use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
@@ -15,7 +16,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        $data = Student::all();
+        return view('student.index', compact('data'));
     }
 
     /**
@@ -34,9 +36,20 @@ class StudentController extends Controller
      * @param  \App\Http\Requests\StoreStudentRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreStudentRequest $request)
+    public function store(Request $request)
     {
-        //
+        $data = $request->validate(([
+            'nama_depan' => 'required',
+            'nama_belakang' => 'required',
+            'npm' => 'required',
+            'no_telp' => 'required',
+            'jenjang_studi' => 'required',
+            'semester' => 'required',
+            'email_address' => 'required'
+        ]));
+
+        Student::create($data);
+        return back()->with('message', 'data telah diisi');
     }
 
     /**
