@@ -21,4 +21,12 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/student/tabel', function () {
+    return view('student.tabel-student');
+});
+
+Route::get('/biodata/mahasiswa', [StudentController::class, 'index']);
+Route::post('/create/biodata/student', [StudentController::class, 'store'])->name('create.student');
+
 require __DIR__.'/auth.php';
+
