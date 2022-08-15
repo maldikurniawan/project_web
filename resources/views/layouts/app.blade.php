@@ -81,7 +81,7 @@
 
     </div>
 </div>
-<div>
+<div class="w-full">
 <main>
     {{ $slot }}
 </main>
