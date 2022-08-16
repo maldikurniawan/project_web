@@ -67,7 +67,8 @@
                                     </div>
 
                                     <div class="ml-5">
-                                        <a href="{{route('student.show', ['student' => $value->id])}}">Detail</a>
+                                        <a href="{{route('student.show', ['student' => $value->npm])}}"
+                                            class="text-black-600 dark:text-black-500 hover:underline">Detail</a>
 
                                     </div>
                                 </div>

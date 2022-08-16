@@ -27,7 +27,7 @@ require __DIR__.'/auth.php';
 Route::get('/student', [StudentController::class, 'create'])->name('student.create');
 Route::post('/student/store', [StudentController::class, 'store'])->name('student.store');
 Route::get('/student/index', [StudentController::class, 'index'])->name('student.index');
-Route::get('/student/{student}', [StudentController::class, 'show'])->name('student.show');
+Route::get('/student/{student:npm}', [StudentController::class, 'show'])->name('student.show');
 Route::get('/student/edit/{student}', [StudentController::class, 'edit'])->name('student.edit');
 Route::put('/update/student/show/{student}', [StudentController::class, 'update'])->name('student.update');
 Route::delete('/delete/student/show/{student}', [StudentController::class, 'delete'])->name('student.delete');
