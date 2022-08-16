@@ -60,7 +60,7 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        //
+        return view('student.show', compact('student'));
     }
 
     /**
@@ -71,7 +71,7 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        //
+        return view('student.edit', compact('student'));
     }
 
     /**
@@ -81,9 +81,20 @@ class StudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateStudentRequest $request, Student $student)
+    public function update(Request $request, Student $student)
     {
-        //
+        $attr = $request->validate(([
+            'nama_depan' => 'required',
+            'nama_belakang' => 'required',
+            'npm' => 'required',
+            'no_telp' => 'required',
+            'jenjang_studi' => 'required',
+            'semester' => 'required',
+            'email_address' => 'required'
+        ]));
+
+        $student->update($attr);
+        return redirect()->route('student.index');
     }
 
     /**
@@ -92,8 +103,9 @@ class StudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function delete(Student $student)
     {
-        //
+        $student->delete();
+        return back();
     }
 }

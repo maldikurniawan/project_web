@@ -51,20 +51,25 @@
                             <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
                                 <div class="flex">
                                     <div>
-                                        <a href="{{route('student.index', ['student' => $value ->id])}}"
+                                        <a href="{{route('student.edit', ['student' => $value ->id])}}"
                                             class="text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
 
                                     </div>
 
-                                    {{-- <div class="ml-5">
-                                        <form action="{{route('delete.data', ['student' => $value->id])}}" method="POST">
+                                    <div class="ml-5">
+                                        <form action="{{route('student.delete', ['student' => $value->id])}}" method="POST">
                                             @method('DELETE')
                                             @csrf
                                             <button
                                                 class="text-red-600 dark:text-red-500 hover:underline">Delete</a>
                                             </form>
 
-                                    </div> --}}
+                                    </div>
+
+                                    <div class="ml-5">
+                                        <a href="{{route('student.show', ['student' => $value->id])}}">Detail</a>
+
+                                    </div>
                                 </div>
 
 
